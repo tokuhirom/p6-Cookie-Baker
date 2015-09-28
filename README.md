@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/tokuhirom/p6-Cookie-Baker.svg?branch=master)](https://travis-ci.org/tokuhirom/p6-Cookie-Baker)
+
 NAME
 ====
 
