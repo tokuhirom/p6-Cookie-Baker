@@ -3,7 +3,7 @@ unit class Cookie::Baker;
 
 use URI::Encode;
 
-sub bake_cookie(Str $name is copy, Str $value, Str :$domain, Str :$path, :$expires, Str :$max-age, Bool :$secure, Bool :$httponly, int :$time=time) is export {
+sub bake-cookie(Str $name is copy, Str $value, Str :$domain, Str :$path, :$expires, Str :$max-age, Bool :$secure, Bool :$httponly, int :$time=time) is export {
     if $name ~~ /<-[a..z A..Z \- \. _ ~]>/ {
         $name = uri_encode($name);
     }
@@ -52,7 +52,7 @@ my sub _date($expires, int $time) {
                    $dt.hour, $dt.minute, $dt.second);
 }
 
-sub crush_cookie(Str $cookie_string) is export {
+sub crush-cookie(Str $cookie_string) is export {
     return {} unless $cookie_string;
 
     my %results;
@@ -78,9 +78,9 @@ Cookie::Baker - Cookie string generator / parser
 
     use Cookie::Baker;
 
-    $headers.push_header('Set-Cookie' => bake_cookie($key, $val));
+    $headers.push_header('Set-Cookie' => bake-cookie($key, $val));
 
-    my $cookies_hashref = crush_cookie($headers.header('Cookie'));
+    my $cookies_hashref = crush-cookie($headers.header('Cookie'));
 
 =head1 DESCRIPTION
 
@@ -88,10 +88,10 @@ Cookie::Baker provides simple cookie string generator and parser.
 
 =head1 FUNCTIONS
 
-=item bake_cookie
+=item bake-cookie
 
-  my $cookie = bake_cookie('foo','val');
-  my $cookie = bake_cookie(
+  my $cookie = bake-cookie('foo','val');
+  my $cookie = bake-cookie(
       'foo', 'val',
       path => "test",
       domain => '.example.com',
@@ -137,11 +137,11 @@ If true, sets HttpOnly flag. false by default.
 
 If true, sets secure flag. false by default.
 
-=item crush_cookie
+=item crush-cookie
 
 Parses cookie string and returns a hashref. 
 
-    my %cookies_hashref = crush_cookie($headers.header('Cookie'));
+    my %cookies_hashref = crush-cookie($headers.header('Cookie'));
     my $cookie_value = %cookies_hashref<cookie_name>;
 
 =head1 AUTHOR

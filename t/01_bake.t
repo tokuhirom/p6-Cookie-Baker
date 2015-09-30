@@ -31,9 +31,9 @@ for @tests {
     my ($name, $value, $opts, $expected) = @$_;
     if $opts {
         $opts<time> = $now;
-        is( bake_cookie($name, $value, |$opts), $expected, $_.perl );
+        is( bake-cookie($name, $value, |$opts), $expected, $_.perl );
     } else {
-        is( bake_cookie($name, $value), $expected, $_.perl );
+        is( bake-cookie($name, $value), $expected, $_.perl );
     }
 }
 

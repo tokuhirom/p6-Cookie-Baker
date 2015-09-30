@@ -22,7 +22,7 @@ my @tests = (
 
 for @tests {
     my ($cookie, $parsed) = @$_;
-    is-deeply( crush_cookie($cookie), $parsed );
+    is-deeply( crush-cookie($cookie), $parsed );
 }
 
 done-testing;

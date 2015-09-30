@@ -10,9 +10,9 @@ SYNOPSIS
 
     use Cookie::Baker;
 
-    $headers.push_header('Set-Cookie' => bake_cookie($key, $val));
+    $headers.push_header('Set-Cookie' => bake-cookie($key, $val));
 
-    my $cookies_hashref = crush_cookie($headers.header('Cookie'));
+    my $cookies_hashref = crush-cookie($headers.header('Cookie'));
 
 DESCRIPTION
 ===========
@@ -22,10 +22,10 @@ Cookie::Baker provides simple cookie string generator and parser.
 FUNCTIONS
 =========
 
-  * bake_cookie
+  * bake-cookie
 
-    my $cookie = bake_cookie('foo','val');
-    my $cookie = bake_cookie(
+    my $cookie = bake-cookie('foo','val');
+    my $cookie = bake-cookie(
         'foo', 'val',
         path => "test",
         domain => '.example.com',
@@ -68,11 +68,11 @@ If true, sets HttpOnly flag. false by default.
 
 If true, sets secure flag. false by default.
 
-  * crush_cookie
+  * crush-cookie
 
 Parses cookie string and returns a hashref. 
 
-    my %cookies_hashref = crush_cookie($headers.header('Cookie'));
+    my %cookies_hashref = crush-cookie($headers.header('Cookie'));
     my $cookie_value = %cookies_hashref<cookie_name>;
 
 AUTHOR
